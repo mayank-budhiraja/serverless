@@ -153,8 +153,10 @@ describe('#compileRestApi()', () => {
   });
 
   it('should throw error if endpointType property is not PRIVATE and vpcEndpointIds property is [id1]', () => {
-    awsCompileApigEvents.serverless.service.provider.endpointType = 'Testing';
-    awsCompileApigEvents.serverless.service.provider.vpcEndpointIds = ['id1'];
+    awsCompileApigEvents.serverless.service.provider.endpointTypeapiKeys = {
+      endpointType: ['Testing'],
+    };
+    awsCompileApigEvents.serverless.service.provider.apiGateway = { vpcEndpointIds: ['id1'] };
     expect(() => awsCompileApigEvents.compileRestApi()).to.throw(Error);
   });
 });
